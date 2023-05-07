@@ -1,5 +1,9 @@
 $(document).ready(function () {
   
+  const amenity = {};
+  const state = {};
+  const city = {};
+
   const amenities = {};
   $('.amenities .popover input').change(function () {
     if ($(this).is(':checked')) {
@@ -26,9 +30,9 @@ $.get('http://0.0.0.0:5001/api/v1/status/', function (data, textStatus) {
     type: 'POST',
     headers: { 'Content-Type': 'application/json' },
     data: JSON.stringify({
-      amenities: Object.values(amenityObj),
-      states: Object.values(stateObj),
-      cities: Object.values(cityObj)
+      amenities: Object.values(amenity),
+      states: Object.values(state),
+      cities: Object.values(city)
     }),
     success: function (response) {
       $('SECTION.places').empty();
